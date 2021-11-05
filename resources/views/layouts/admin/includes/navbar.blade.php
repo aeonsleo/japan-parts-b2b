@@ -141,6 +141,12 @@
 
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item">
+                                <i class="fe-plus-square me-1"></i>
+                                <span>New Role</span>
+                            </a>
+
+                            <!-- item-->
+                            <a href="javascript:void(0);" class="dropdown-item">
                                 <i class="fe-user-plus me-1"></i>
                                 <span>New Supplier</span>
                             </a>

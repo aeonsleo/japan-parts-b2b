@@ -8,6 +8,14 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     /**
+     * Constructor
+     */
+    function __construct()
+    {
+        $this->middleware('permission:product-create', ['only' => ['create', 'store']]);
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response

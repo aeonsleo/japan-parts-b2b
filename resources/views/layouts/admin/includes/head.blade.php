@@ -8,14 +8,14 @@
 {{-- <link rel="shortcut icon" href="../assets/images/favicon.ico"> --}}
 
 <!-- Plugins css-->
-<link href="{{ asset('admin/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
-<link href="{{ asset('admin/css/dropzone.min.css') }}" rel="stylesheet" type="text/css" />
-<link href="{{ asset('admin/css/quill.core.css') }}" rel="stylesheet" type="text/css" />
-<link href="{{ asset('admin/css/quill.snow.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('backend/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('backend/css/dropzone.min.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('backend/css/quill.core.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('backend/css/quill.snow.css') }}" rel="stylesheet" type="text/css" />
 
 <!-- App css -->
-<link href="{{ asset('admin/css/bootstrap.min.css') }}" rel="stylesheet">
-<link href="{{ asset('admin/css/app.css') }}" rel="stylesheet">
+<link href="{{ asset('backend/css/bootstrap.min.css') }}" rel="stylesheet">
+<link href="{{ asset('backend/css/app.css') }}" rel="stylesheet">
 
 <!-- icons -->
-<link href="{{ asset('admin/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('backend/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
