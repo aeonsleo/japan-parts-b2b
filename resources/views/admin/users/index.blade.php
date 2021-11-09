@@ -35,14 +35,15 @@
                         <table class="table table-centered table-nowrap table-striped" id="products-datatable">
                             <thead>
                                 <tr>
-                                    <th style="width: 20px;">
+                                    {{-- <th style="width: 20px;">
                                         <div class="form-check">
                                             <input type="checkbox" class="form-check-input" id="customCheck1">
                                             <label class="form-check-label" for="customCheck1">&nbsp;</label>
                                         </div>
-                                    </th>
+                                    </th> --}}
                                     <th>Name</th>
                                     <th>Email</th>
+                                    <th>Role</th>
                                     <th>Created Date</th>
                                     <th style="width: 85px;">Action</th>
                                 </tr>
@@ -50,12 +51,12 @@
                             <tbody>
                                 @foreach ($users as $user)
                                     <tr>
-                                        <td>
+                                        {{-- <td>
                                             <div class="form-check">
                                                 <input type="checkbox" class="form-check-input" id="customCheck2">
                                                 <label class="form-check-label" for="customCheck2">&nbsp;</label>
                                             </div>
-                                        </td>
+                                        </td> --}}
                                         <td class="table-user">
                                             {{-- <img src="../assets/images/users/user-4.jpg" alt="table-user"
                                                 class="me-2 rounded-circle"> --}}
@@ -66,13 +67,24 @@
                                             {{ $user->email }}
                                         </td>
                                         <td>
+                                            {{ $user->getRoleNames() }}
+                                        </td>
+                                        <td>
                                             {{ $user->created_at }}
                                         </td>
                                         <td>
+                                            @can('user-list')
                                             <a href="javascript:void(0);" class="action-icon"> <i
-                                                    class="mdi mdi-square-edit-outline"></i></a>
+                                                    class="mdi mdi-eye"></i></a>
+                                            @endcan
+                                            @can('user-edit')
                                             <a href="javascript:void(0);" class="action-icon"> <i
-                                                    class="mdi mdi-delete"></i></a>
+                                                class="mdi mdi-square-edit-outline"></i></a>
+                                            @endcan
+                                            @can('user-delete')
+                                            <a href="javascript:void(0);" class="action-icon"> <i
+                                                class="mdi mdi-delete"></i></a>
+                                            @endcan
                                         </td>
                                     </tr>
                                 @endforeach

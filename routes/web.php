@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Supplier\ProductController;
+use App\Http\Controllers\Supplier\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,10 +24,13 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/supplier/register', [RegisterController::class, 'index'])->name('supplier.register');
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function() {
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
     Route::resource('products', ProductController::class);
+    Route::get('/', [AdminHomeController::class, 'index'])->name('admin.home');
 });

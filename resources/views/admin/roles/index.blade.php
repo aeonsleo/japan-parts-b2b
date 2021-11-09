@@ -27,7 +27,8 @@
                 <div class="card-body">
                     <div class="row mb-2">
                         <div class="col-sm-4">
-                            <a type="button" class="btn btn-danger waves-effect waves-light" href="{{ route('roles.create') }}"><i class="mdi mdi-plus-circle me-1"></i> New Role</a>
+                            <a type="button" class="btn btn-danger waves-effect waves-light"
+                                href="{{ route('roles.create') }}"><i class="mdi mdi-plus-circle me-1"></i> New Role</a>
                         </div>
                     </div>
 
@@ -62,24 +63,23 @@
                                     @endcan
                                 </td> --}}
                                         <td>
-                                            <a href="{{ route('roles.show', ['role' => $role->id]) }}" class="action-icon"> <i
-                                                    class="mdi mdi-eye"></i></a>
+                                            <a href="{{ route('roles.show', ['role' => $role->id]) }}"
+                                                class="action-icon"> <i class="mdi mdi-eye"></i></a>
                                             @can('role-edit')
-                                            <a href="{{ route('roles.edit', ['role' => $role->id]) }}" class="action-icon"> <i
-                                                    class="mdi mdi-square-edit-outline"></i></a>
-                                            @endcan
+                                                    <a href="{{ route('roles.edit', ['role' => $role->id]) }}"
+                                                        class="action-icon"> <i class="mdi mdi-square-edit-outline"></i></a>
+                                            @endif
                                             @can('role-delete')
-                                            {{-- <a href="javascript:void(0);" class="action-icon"> <i
+                                                    {{-- <a href="javascript:void(0);" class="action-icon"> <i
                                                     class="mdi mdi-delete"></i></a> --}}
-                                            <form action="{{ route('roles.destroy', ['role' => $role->id]) }}" 
-                                                method="POST" 
-                                                style="display: inline"
-                                                onsubmit="return confirmDelete('{{ $role->name }}')"
-                                            >
-                                                @csrf
-                                                {{ method_field('DELETE') }}
-                                                <button type="submit" class="action-icon"> <i class="mdi mdi-delete"></i></button>
-                                            </form>                                                    
+                                                    <form action="{{ route('roles.destroy', ['role' => $role->id]) }}"
+                                                        method="POST" style="display: inline"
+                                                        onsubmit="return confirmDelete('{{ $role->name }}')">
+                                                        @csrf
+                                                        {{ method_field('DELETE') }}
+                                                        <button type="submit" class="action-icon delete-icon"> <i
+                                                                class="mdi mdi-delete"></i></button>
+                                                    </form>
                                             @endcan
                                         </td>
                                     </tr>
@@ -97,15 +97,15 @@
 
 @section('script')
 
-<script>
-    function confirmDelete(name) {
-        var answer = window.confirm('Are you sure you want to delete ' + name + '?');
-        if(answer) {
-            return true;
-        } else {
-            return false;
+    <script>
+        function confirmDelete(name) {
+            var answer = window.confirm('Are you sure you want to delete ' + name + '?');
+            if (answer) {
+                return true;
+            } else {
+                return false;
+            }
         }
-    }
-</script>
+    </script>
 
 @endsection

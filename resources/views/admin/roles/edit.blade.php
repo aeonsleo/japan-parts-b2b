@@ -48,16 +48,20 @@
 
                             <div class="mb-3">
                                 <h4 class="form-label">Permission</h4>
-                                @foreach($permission as $value)
-                                <div class="form-check">
-                                    <input type="checkbox" id="permcheck-{{ $value->id }}" value="{{ $value->id }}" class="" name="permission[]"
-                                        @if(in_array($value->id, $rolePermissions)) 
-                                        checked
-                                        @endif
-                                    >
-                                    <label class="form-check-label" for="permcheck-{{ $value->id }}">{{ $value->name }}</label>
+                                <div class="row">
+                                    @foreach($permission as $value)
+                                    <div class="col-3">
+                                        <div class="form-check font-16">
+                                            <input type="checkbox" id="permcheck-{{ $value->id }}" value="{{ $value->id }}" class="" name="permission[]"
+                                                @if(in_array($value->id, $rolePermissions)) 
+                                                checked
+                                                @endif
+                                            >
+                                            <label class="form-check-label" for="permcheck-{{ $value->id }}">{{ $value->name }}</label>
+                                        </div>
+                                    </div>
+                                    @endforeach
                                 </div>
-                                @endforeach
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                 </form>

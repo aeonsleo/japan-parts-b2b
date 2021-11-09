@@ -1871,7 +1871,7 @@ body.authentication-bg {
   background-position: center; }
 
 body.authentication-bg-pattern {
-  background-image: url("../../../images/bg-pattern.png"); }
+  background-image: url("../images/bg-pattern.png"); }
 
 .logout-icon {
   width: 140px; }
@@ -5524,3 +5524,8 @@ span.flatpickr-weekday,
     content: "\F01DB";
     font-family: "Material Design Icons";
     position: absolute; }
+
+.delete-icon {
+  border: 0;
+  background: none;
+}

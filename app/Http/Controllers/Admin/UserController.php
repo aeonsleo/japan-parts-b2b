@@ -9,6 +9,13 @@ use App\Http\Controllers\Controller;
 class UserController extends Controller
 {
     /**
+     * Constructor 
+     */    
+    function __construct()
+    {
+        $this->middleware('permission:user-list', ['only' => ['index']]);
+    }
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -27,7 +34,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        echo 'Create user here';
     }
 
     /**
