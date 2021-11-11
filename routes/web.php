@@ -33,4 +33,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function() {
     Route::resource('users', UserController::class);
     Route::resource('products', ProductController::class);
     Route::get('/', [AdminHomeController::class, 'index'])->name('admin.home');
+    Route::post('/user/deactivate', [UserController::class, 'deactivate'])->name('user.deactivate');
+    Route::post('/user/activate', [UserController::class, 'activate'])->name('user.activate');
+    Route::post('/user/ban', [UserController::class, 'ban'])->name('user.ban');
+    Route::post('/user/approve', [UserController::class, 'approve'])->name('user.approve');
 });

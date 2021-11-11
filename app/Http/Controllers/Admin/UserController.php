@@ -56,7 +56,9 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::where('id', $id)->first();
+
+        return view('admin.users.show', compact('user'));
     }
 
     /**
@@ -91,5 +93,65 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Deactivate a user
+     * 
+     * @param \Illumiate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function deactivate(Request $request)
+    {
+        $user = User::where('id', $request->id)->first();
+        $user->status = 'deactivated';
+        $user->save();
+
+        return redirect()->route('users.show', ['user' => $user->id]);
+    }
+
+    /**
+     * Ativate a user
+     * 
+     * @param \Illumiate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function activate(Request $request)
+    {
+        $user = User::where('id', $request->id)->first();
+        $user->status = 'active';
+        $user->save();
+
+        return redirect()->route('users.show', ['user' => $user->id]);
+    }
+
+    /**
+     * Approve a user
+     * 
+     * @param \Illumiate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function approve(Request $request)
+    {
+        $user = User::where('id', $request->id)->first();
+        $user->status = 'active';
+        $user->save();
+
+        return redirect()->route('users.show', ['user' => $user->id]);
+    }
+
+    /**
+     * Ban a user
+     * 
+     * @param \Illumiate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function ban(Request $request)
+    {
+        $user = User::where('id', $request->id)->first();
+        $user->status = 'banned';
+        $user->save();
+
+        return redirect()->route('users.show', ['user' => $user->id]);
     }
 }

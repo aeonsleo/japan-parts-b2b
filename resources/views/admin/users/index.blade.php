@@ -44,6 +44,7 @@
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Role</th>
+                                    <th>Status</th>
                                     <th>Created Date</th>
                                     <th style="width: 85px;">Action</th>
                                 </tr>
@@ -70,21 +71,34 @@
                                             {{ $user->getRoleNames() }}
                                         </td>
                                         <td>
+                                            @if ($user->status == 'unverified')
+                                            <span class="badge bg-primary">{{ $user->status }}</span>
+                                            @elseif ($user->status == 'unapproved')
+                                            <span class="badge bg-warning">{{ $user->status }}</span>
+                                            @elseif ($user->status == 'banned')
+                                            <span class="badge bg-danger">{{ $user->status }}</span>
+                                            @elseif ($user->status == 'active')
+                                            <span class="badge bg-success">{{ $user->status }}</span>
+                                            @elseif ($user->status == 'deactivated')
+                                            <span class="badge bg-secondary">{{ $user->status }}</span>
+                                            @endif
+                                        </td>
+                                        <td>
                                             {{ $user->created_at }}
                                         </td>
                                         <td>
                                             @can('user-list')
-                                            <a href="javascript:void(0);" class="action-icon"> <i
+                                            <a href="{{ route('users.show', ['user' => $user->id ]) }}" class="action-icon"> <i
                                                     class="mdi mdi-eye"></i></a>
                                             @endcan
-                                            @can('user-edit')
+                                            {{-- @can('user-edit')
                                             <a href="javascript:void(0);" class="action-icon"> <i
                                                 class="mdi mdi-square-edit-outline"></i></a>
                                             @endcan
                                             @can('user-delete')
                                             <a href="javascript:void(0);" class="action-icon"> <i
                                                 class="mdi mdi-delete"></i></a>
-                                            @endcan
+                                            @endcan --}}
                                         </td>
                                     </tr>
                                 @endforeach
