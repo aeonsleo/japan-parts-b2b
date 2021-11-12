@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\CategoryFieldController;
+use App\Http\Controllers\Admin\CategoryFieldOptionController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\RoleController;
@@ -32,6 +35,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function() {
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
     Route::resource('products', ProductController::class);
+    Route::resource('categories', CategoryController::class);
+    Route::resource('category-fields', CategoryFieldController ::class);
+    Route::resource('category-field-options', CategoryFieldOptionController::class);
     Route::get('/', [AdminHomeController::class, 'index'])->name('admin.home');
     Route::post('/user/deactivate', [UserController::class, 'deactivate'])->name('user.deactivate');
     Route::post('/user/activate', [UserController::class, 'activate'])->name('user.activate');

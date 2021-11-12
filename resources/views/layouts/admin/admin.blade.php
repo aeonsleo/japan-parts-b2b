@@ -24,9 +24,11 @@
 
                 <!-- Start Content-->
                 <div class="container-fluid">
-
+                    
                     @yield('title')
-
+                    
+                    @include('admin.flash-message')
+                    
                     @yield('content')
 
                 </div> <!-- container -->
