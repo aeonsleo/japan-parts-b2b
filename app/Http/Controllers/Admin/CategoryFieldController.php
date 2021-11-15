@@ -27,7 +27,7 @@ class CategoryFieldController extends Controller
      */
     public function index()
     {
-        $categoryFields = CategoryField::all();
+        $categoryFields = CategoryField::paginate(10);
         return view('admin.category-fields.index', compact('categoryFields'));
     }
 

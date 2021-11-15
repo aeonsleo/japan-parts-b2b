@@ -80,7 +80,7 @@
                         <h4>No Categories created</h4>
                         @endif
                     </div>
-
+                    {{ $categories->links() }}
                 </div> <!-- end card-body-->
             </div> <!-- end card-->
         </div> <!-- end col -->

@@ -28,7 +28,7 @@ class CategoryFieldOptionController extends Controller
      */
     public function index()
     {
-        $categoryFieldOptions = CategoryFieldOption::all();
+        $categoryFieldOptions = CategoryFieldOption::paginate(10);
         
         return view('admin.category-field-options.index', compact('categoryFieldOptions'));
     }

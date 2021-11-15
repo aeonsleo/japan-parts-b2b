@@ -73,7 +73,7 @@
                         <h4>No Category Field Option created</h4>
                         @endif
                     </div>
-
+                    {{ $categoryFieldOptions->links() }}
                 </div> <!-- end card-body-->
             </div> <!-- end card-->
         </div> <!-- end col -->

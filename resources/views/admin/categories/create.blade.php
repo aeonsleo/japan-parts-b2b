@@ -23,7 +23,7 @@
 @section('content')
 
 <div class="row">
-    <div class="col-12">
+    <div class="col-5">
         <div class="card">
             <div class="card-body">
                 <form action="{{ route('categories.store') }}" method="post">

@@ -23,14 +23,14 @@
 @section('content')
 
 <div class="row">
-    <div class="col-12">
+    <div class="col-5">
         <div class="card">
             <div class="card-body">
                 <form action="{{ route('category-field-options.store') }}" method="post">
                     @csrf
                     <div class="mb-3">
                         <label class="form-label">Category</label>
-                        <select name="category_field_id" class="form-control">
+                        <select name="category_field_id" class="form-select">
                             @foreach ($categoryFields as $categoryField)
                             <option value="{{ $categoryField->id }}">{{ $categoryField->name }}</option>
                             @endforeach

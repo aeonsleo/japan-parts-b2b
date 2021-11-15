@@ -5529,3 +5529,7 @@ span.flatpickr-weekday,
   border: 0;
   background: none;
 }
+
+.pagination span {
+  line-height: 1.25!important;
+}

@@ -68,7 +68,8 @@
                                             {{ $user->email }}
                                         </td>
                                         <td>
-                                            {{ $user->getRoleNames() }}
+                                            {{-- {{ dd($user->getRoleNames()->all() )}} --}}
+                                            {{ implode(',', $user->getRoleNames()->all()) }}
                                         </td>
                                         <td>
                                             @if ($user->status == 'unverified')

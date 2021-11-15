@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -22,8 +23,10 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $users = User::orderBy('id', 'DESC')->paginate(10);
-        return view('admin.users.index', compact('users'))
+        $role = Role::where('name','Customer')->first();
+        $users = $role->users()->paginate(10);
+
+        return view('admin.users.index', ['users' => $users])
             ->with('i', ($request->input('page', 1) -1) * 10);
     }
 
