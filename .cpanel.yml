@@ -2,3 +2,5 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/vindecode/japanpartsb2b.vindecode.net/
+    - /bin/composer update
+    - /bin/cp * $DEPLOYPATH
