@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Supplier\DashboardController as SupplierDashboardController;
 use App\Http\Controllers\Supplier\ProductController;
 use App\Http\Controllers\Supplier\RegisterController;
 
@@ -27,10 +28,17 @@ Route::get('/', function () {
 
 Auth::routes(['verify' => true]);
 
-Route::get('/supplier/register', [RegisterController::class, 'index'])->name('supplier.register');
+Route::get('/supplier/register', [RegisterController::class, 'showForm'])->name('supplier.register');
+Route::post('/supplier/register', [RegisterController::class, 'register']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+//Supplier
+Route::group(['prefix' => 'supplier', 'middleware' => ['auth']], function() {
+    Route::get('/home', [SupplierDashboardController::class, 'index'])->name('supplier.home');
+});
+
+//Admin
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function() {
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);

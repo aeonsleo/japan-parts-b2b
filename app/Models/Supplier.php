@@ -10,6 +10,8 @@ class Supplier extends Model
 {
     use HasFactory;
 
+    public $guarded = ['id'];
+
     /**
      * The user that is associated with the supplier
      */

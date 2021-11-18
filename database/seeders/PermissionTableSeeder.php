@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class PermissionTableSeeder extends Seeder
 {
@@ -14,10 +15,8 @@ class PermissionTableSeeder extends Seeder
      */
     public function run()
     {
-        $permissions = [
+        $permissionsAdmin = [
             'admin',
-            'supplier',
-            'customer',
             'role-list',
             'role-create',
             'role-edit',
@@ -27,7 +26,6 @@ class PermissionTableSeeder extends Seeder
             'product-edit',
             'product-delete',
             'product-approve',
-            'product-search',
             'supplier-create',
             'supplier-edit',
             'supplier-delete',
@@ -58,11 +56,6 @@ class PermissionTableSeeder extends Seeder
             'supplier-ban',
             'supplier-disable',
             'catalog-access',
-            'cart-create',
-            'cart-edit',
-            'cart-list',
-            'cart-delete',
-            'cart-checkout',
             'quotation-create',
             'quotation-edit',
             'quotation-list',
@@ -71,12 +64,54 @@ class PermissionTableSeeder extends Seeder
             'invoice-edit',
             'invoice-list',
             'invoice-delete',
-            'email-send',
         ];
 
-        foreach($permissions as $permission) {
-            Permission::create(['name' => $permission]);
+        $permissionsSupplier = [
+            'supplier',
+            'product-list',
+            'product-create',
+            'product-edit',
+            'product-delete',
+            'product-approve',
+            'product-search',
+            'catalog-access',
+            'quotation-create',
+            'quotation-edit',
+            'quotation-list',
+            'quotation-delete',
+            'invoice-list',
+        ];
+
+        $permissionsCustomer = [
+            'customer',
+            'order-create',
+            'order-list',
+            'cart-create',
+            'cart-edit',
+            'cart-list',
+            'cart-delete',
+            'cart-checkout',
+            'quotation-list',
+            'invoice-list',
+        ];
+
+        $role = Role::create(['name' => 'Admin']);
+        foreach($permissionsAdmin as $permission) {
+            $permission = Permission::firstOrCreate(['name' => $permission]);
+            $role->givePermissionTo($permission);
         }
+
+        $role = Role::create(['name' => 'Supplier']);
+        foreach($permissionsSupplier as $permission) {
+            Permission::firstOrCreate(['name' => $permission]);
+            $role->givePermissionTo($permission);
+        }        
+
+        $role = Role::create(['name' => 'Customer']);
+        foreach($permissionsCustomer as $permission) {
+            Permission::firstOrCreate(['name' => $permission]);
+            $role->givePermissionTo($permission);
+        }        
     }
 
     

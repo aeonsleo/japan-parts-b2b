@@ -20,7 +20,7 @@ class CreateSuppliersTable extends Migration
             $table->string('company_name');
             $table->string('business_id')->nullable();
             $table->string('phone');
-            $table->string('business_email');
+            $table->string('business_email')->nullable();
             $table->string('contact_person_name');
             $table->string('url')->nullable();
             $table->unsignedBigInteger('user_id');

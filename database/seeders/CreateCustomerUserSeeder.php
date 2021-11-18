@@ -28,9 +28,7 @@ class CreateCustomerUserSeeder extends Seeder
             'password' => bcrypt('password')
         ]);
         
-        $role = Role::create(['name' => 'Customer']);
-        $permissions = Permission::where('name', 'customer');
-        $role->syncPermissions($permissions);
+        $role = Role::where(['name' => 'Customer'])->first();
 
         $user1->assignRole([$role->id]);
         $user2->assignRole([$role->id]);

@@ -50,8 +50,8 @@ class LoginController extends Controller
     {
         if($user->hasRole('Admin')) {
             return redirect()->route('admin.home');
-        } elseif($user->hasRole('Shopowner')) {
-            // return redirect()->route('shopowner.home');
+        } elseif($user->hasRole('Supplier')) {
+            return redirect()->route('supplier.home');
         } else {
             return redirect()->route('home');
         }

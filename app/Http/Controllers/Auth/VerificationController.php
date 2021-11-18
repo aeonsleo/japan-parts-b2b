@@ -54,5 +54,11 @@ class VerificationController extends Controller
         $user = User::where('id', $request->route('id'))->first();
         $user->status = User::VERIFIED;
         $user->save();
+
+        if($user->hasRole('Supplier')) {
+            return redirect()->route('supplier.home');
+        } else {
+            return redirect()->route('home');
+        }        
     }    
 }
