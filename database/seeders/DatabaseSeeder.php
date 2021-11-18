@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             CreateAdminUserSeeder::class,
             CreateCustomerUserSeeder::class,
             CategorySeeder::class,
+            CountrySeeder::class,
         ]);
     }
 }

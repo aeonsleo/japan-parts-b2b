@@ -25,7 +25,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/supplier/register', [RegisterController::class, 'index'])->name('supplier.register');
 
