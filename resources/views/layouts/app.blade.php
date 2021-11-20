@@ -61,6 +61,9 @@
                                     {{ Auth::user()->name }}
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{ route('supplier.product.create') }}">Create Product</a>
+                            </li>
                             <li>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();

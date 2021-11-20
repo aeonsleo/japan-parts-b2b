@@ -1,15 +1,17 @@
 <?php
 
-use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\CategoryFieldController;
-use App\Http\Controllers\Admin\CategoryFieldOptionController;
-use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\Supplier\DashboardController as SupplierDashboardController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\Supplier\ProductController;
 use App\Http\Controllers\Supplier\RegisterController;
+use App\Http\Controllers\Admin\CategoryFieldController;
+use App\Http\Controllers\Admin\CategoryFieldOptionController;
+use App\Http\Controllers\Admin\HomeController as AdminHomeController;
+use App\Http\Controllers\Admin\SupplierController as AdminSupplierController;
+use App\Http\Controllers\Supplier\DashboardController as SupplierDashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +28,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/test-parts-catalog', function () {
+    return view('test-parts-catalog');
+});
+
 Auth::routes(['verify' => true]);
 
 Route::get('/supplier/register', [RegisterController::class, 'showForm'])->name('supplier.register');
@@ -36,12 +42,14 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //Supplier
 Route::group(['prefix' => 'supplier', 'middleware' => ['auth']], function() {
     Route::get('/home', [SupplierDashboardController::class, 'index'])->name('supplier.home');
+    Route::get('/products/create', [ProductController::class, 'create'])->name('supplier.product.create');
 });
 
 //Admin
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function() {
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
+    Route::resource('suppliers', AdminSupplierController::class);
     Route::resource('products', ProductController::class);
     Route::resource('categories', CategoryController::class);
     Route::resource('category-fields', CategoryFieldController ::class);

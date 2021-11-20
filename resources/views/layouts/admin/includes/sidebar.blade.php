@@ -44,6 +44,23 @@
                                 </ul>
                             </div>                                                        
                         </li>
+                        <li>
+                            <a href="#suppliers" data-bs-toggle="collapse">
+                                <i data-feather="users"></i>
+                                <span> Suppliers </span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <div class="collapse" id="suppliers">
+                                <ul class="nav-second-level">
+                                    <li>
+                                        <a href="{{ route('suppliers.index') }}">List Suppliers</a>
+                                    </li>
+                                    {{-- <li>
+                                        <a href="{{ route('suppliers.create') }}">New User</a>
+                                    </li> --}}
+                                </ul>
+                            </div>                                                        
+                        </li>
                         <li class="menu-title">Categories</li>
                         <li>
                             <a href="#categories" data-bs-toggle="collapse">

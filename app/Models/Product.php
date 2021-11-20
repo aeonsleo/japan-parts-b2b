@@ -54,4 +54,12 @@ class Product extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    /**
+     * The discounts associated with the product
+     */
+    public function discounts()
+    {
+        return $this->belongsToMany(Discount::class);
+    }
 }

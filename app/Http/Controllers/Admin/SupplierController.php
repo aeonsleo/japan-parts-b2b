@@ -1,21 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Supplier;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Supplier;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class SupplierController extends Controller
 {
-    /**
-     * Constructor
-     */
-    function __construct()
-    {
-        $this->middleware('permission:supplier');
-        $this->middleware('permission:product-create', ['only' => ['create', 'store']]);
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -23,7 +15,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $suppliers = Supplier::with('user')->orderby('created_at', 'desc')->get();
+        // dd($suppliers);
+        return view('admin.suppliers.index', compact('suppliers'));
     }
 
     /**
@@ -33,7 +27,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('suppliers.products.create');
+        //
     }
 
     /**
@@ -53,9 +47,10 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Supplier $supplier)
     {
-        //
+        $user = $supplier->user;
+        return view('admin.suppliers.show', compact('supplier', 'user'));
     }
 
     /**

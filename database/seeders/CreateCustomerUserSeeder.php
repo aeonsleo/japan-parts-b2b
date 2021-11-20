@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
@@ -19,12 +20,16 @@ class CreateCustomerUserSeeder extends Seeder
         $user1 = User::create([
             'name' => 'John Doe',
             'email' => 'john@jpb2b.com',
+            'status' => User::VERIFIED,
+            'email_verified_at' => Carbon::now(),
             'password' => bcrypt('password')
         ]);
 
         $user2 = User::create([
             'name' => 'Peter Jakes',
             'email' => 'peter@jpb2b.com',
+            'status' => User::VERIFIED,
+            'email_verified_at' => Carbon::now(),
             'password' => bcrypt('password')
         ]);
         

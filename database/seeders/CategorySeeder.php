@@ -24,8 +24,8 @@ class CategorySeeder extends Seeder
             $slug = implode('-', $name2);
     
             $category = Category::create([
-                'name' => $name,
-                'label' => ucwords($name),
+                'name' => ucfirst($cat),
+                'label' => ucwords($cat),
                 'slug' => $slug,
             ]);
         }

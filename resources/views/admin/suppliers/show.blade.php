@@ -34,7 +34,7 @@
                             @endif
                         </div>
                         <div class="col-4">
-                            @if ($user->status == 'active' || $user->status == 'verified')
+                            @if ($user->status == 'active')
                             <form action="{{ route('user.deactivate', ['id' => $user->id]) }}" method="POST" class="float-end ms-2">
                                 @csrf
                                 <button type="submit" class="btn btn-warning btn-xs waves-effect mb-2 waves-light">Deactivate</button>
@@ -43,7 +43,7 @@
                                 @csrf
                                 <button type="submit" class="btn btn-danger btn-xs waves-effect mb-2 waves-light">Ban</button>
                             </form>
-                            @elseif ($user->status == 'deactivated')
+                            @elseif ($user->status == 'deactivated' || $user->status == 'verified')
                             <form action="{{ route('user.activate', ['id' => $user->id]) }}" method="POST" class="float-end ms-2">
                                 @csrf
                                 <button type="submit" class="btn btn-success btn-xs waves-effect mb-2 waves-light">Activate</button>
@@ -72,6 +72,8 @@
                         {{-- <p class="text-muted mb-2 font-13"><strong>Mobile :</strong><span class="ms-2">{{  }}</span></p> --}}
                     
                         <p class="text-muted mb-2 font-13"><strong>Email :</strong> <span class="ms-2">{{ $user->email }}</span></p>
+                        <p class="text-muted mb-2 font-13"><strong>Company Name :</strong> <span class="ms-2">{{ $supplier->company_name }}</span></p>
+                        <p class="text-muted mb-2 font-13"><strong>Phone :</strong> <span class="ms-2">{{ $supplier->phone }}</span></p>
                         <p class="text-muted mb-2 font-13"><strong>Status :</strong> <span class="ms-2">{{ $user->status }}</span></p>
                         <p class="text-muted mb-1 font-13"><strong>Created :</strong> <span class="ms-2">{{ $user->created_at }}</span></p>
                     </div>                                    
