@@ -14,6 +14,8 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
+    const OEM = 'oem';
+    const AFTERMARKET = 'aftermarket';
 
     /**
      * The images that belong to the product

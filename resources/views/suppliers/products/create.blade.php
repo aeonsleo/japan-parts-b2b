@@ -1,192 +1,67 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <h5 class="text-uppercase bg-light p-2 mt-0 mb-3">Create Product</h5>
 
-<!-- content -->
-<div class="row">
-    <div class="col-lg-6">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="text-uppercase bg-light p-2 mt-0 mb-3">General</h5>
-
-                <div class="mb-3">
-                    <label for="product-name" class="form-label">Product Name <span
-                            class="text-danger">*</span></label>
-                    <input type="text" id="product-name" class="form-control"
-                        placeholder="e.g : Apple iMac">
-                </div>
-
-                <div class="mb-3">
-                    <label for="product-reference" class="form-label">Reference <span
-                            class="text-danger">*</span></label>
-                    <input type="text" id="product-reference" class="form-control"
-                        placeholder="e.g : Apple iMac">
-                </div>
-
-                <div class="mb-3">
-                    <label for="product-description" class="form-label">Product Description
-                        <span class="text-danger">*</span></label>
-                    <div id="snow-editor" style="height: 150px;"></div> <!-- end Snow-editor-->
-                </div>
-
-                <div class="mb-3">
-                    <label for="product-summary" class="form-label">Product Summary</label>
-                    <textarea class="form-control" id="product-summary" rows="3"
-                        placeholder="Please enter summary"></textarea>
-                </div>
-
-                <div class="mb-3">
-                    <label for="product-category" class="form-label">Categories <span
-                            class="text-danger">*</span></label>
-                    <select class="form-control select2" id="product-category">
-                        <option>Select</option>
-                        <optgroup label="Shopping">
-                            <option value="SH1">Shopping 1</option>
-                            <option value="SH2">Shopping 2</option>
-                            <option value="SH3">Shopping 3</option>
-                            <option value="SH4">Shopping 4</option>
-                        </optgroup>
-                        <optgroup label="CRM">
-                            <option value="CRM1">Crm 1</option>
-                            <option value="CRM2">Crm 2</option>
-                            <option value="CRM3">Crm 3</option>
-                            <option value="CRM4">Crm 4</option>
-                        </optgroup>
-                        <optgroup label="eCommerce">
-                            <option value="E1">eCommerce 1</option>
-                            <option value="E2">eCommerce 2</option>
-                            <option value="E3">eCommerce 3</option>
-                            <option value="E4">eCommerce 4</option>
-                        </optgroup>
-
-                    </select>
-                </div>
-
-                <div class="mb-3">
-                    <label for="product-price">Price <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="product-price"
-                        placeholder="Enter amount">
-                </div>
-
-                <div class="mb-3">
-                    <label class="mb-2">Status <span
-                            class="text-danger">*</span></label>
-                    <br />
-                    <div class="radio form-check-inline">
-                        <input type="radio" id="inlineRadio1" value="option1" name="radioInline"
-                            checked="">
-                        <label for="inlineRadio1"> Online </label>
-                    </div>
-                    <div class="radio form-check-inline">
-                        <input type="radio" id="inlineRadio2" value="option2" name="radioInline">
-                        <label for="inlineRadio2"> Offline </label>
-                    </div>
-                    <div class="radio form-check-inline">
-                        <input type="radio" id="inlineRadio3" value="option3" name="radioInline">
-                        <label for="inlineRadio3"> Draft </label>
-                    </div>
-                </div>
-
-                <div>
-                    <label class="form-label">Comment</label>
-                    <textarea class="form-control" rows="3"
-                        placeholder="Please enter comment"></textarea>
-                </div>
-            </div>
-        </div> <!-- end card -->
-    </div> <!-- end col -->
-
-    <div class="col-lg-6">
-
-        <div class="card">
-            <div class="card-body">
-                <h5 class="text-uppercase mt-0 mb-3 bg-light p-2">Product Images</h5>
-
-                <form action="/" method="post" class="dropzone" id="myAwesomeDropzone"
-                    data-plugin="dropzone" data-previews-container="#file-previews"
-                    data-upload-preview-template="#uploadPreviewTemplate">
-                    <div class="fallback">
-                        <input name="file" type="file" multiple />
-                    </div>
-
-                    <div class="dz-message needsclick">
-                        <i class="h1 text-muted dripicons-cloud-upload"></i>
-                        <h3>Drop files here or click to upload.</h3>
-                        <span class="text-muted font-13">(This is just a demo dropzone. Selected
-                            files are
-                            <strong>not</strong> actually uploaded.)</span>
+                <form action="" method="GET">
+                    <div class="row">
+                        <div class="col-6 p-3">
+                            <div class="row">
+                                <div class="col-3">
+                                    <label for="product_type" class="form-label">Type of Product</label>
+                                </div>
+                                <div class="col-9">
+                                    <div class="form-group">
+                                        <select  class="form-select" name="product_type" id="select-type">
+                                            <option value="">Select</option>
+                                            <option value="oem" @if (request()->product_type == 'oem') selected @endif>OEM</option>
+                                            <option value="aftermarket" @if (request()->product_type == 'aftermarket') selected @endif>Aftermarket</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            @if (request()->has('product_type'))
+                                <div class="row" id="oem-part">
+                                    <div class="col-3">
+                                        <label for="part-number" class="form-label">Enter Part No</label>
+                                    </div>
+                                    <div class="col-8">
+                                        <div class="form-group">
+                                            <input type="text" name="part_number" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-1">
+                                        <button type="submit" class="btn btn-warning">Go</button>
+                                    </div>
+                                </div>     
+                                <div class="row">
+                                    <div class="col-12">OR</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <button name="search_part" class="btn btn-primary" type="submit">Search for Part No</button>
+                                    </div>
+                                </div>                       
+                            @endif
+                        </div>
                     </div>
                 </form>
-
-                <!-- Preview -->
-                <div class="dropzone-previews mt-3" id="file-previews"></div>
-            </div>
-        </div> <!-- end col-->
-
-        <div class="card">
-            <div class="card-body">
-                <h5 class="text-uppercase mt-0 mb-3 bg-light p-2">Meta Data</h5>
-
-                <div class="mb-3">
-                    <label for="product-meta-title" class="form-label">Meta title</label>
-                    <input type="text" class="form-control" id="product-meta-title"
-                        placeholder="Enter title">
-                </div>
-
-                <div class="mb-3">
-                    <label for="product-meta-keywords" class="form-label">Meta Keywords</label>
-                    <input type="text" class="form-control" id="product-meta-keywords"
-                        placeholder="Enter keywords">
-                </div>
-
-                <div>
-                    <label for="product-meta-description" class="form-label">Meta Description
-                    </label>
-                    <textarea class="form-control" rows="5" id="product-meta-description"
-                        placeholder="Please enter description"></textarea>
-                </div>
-            </div>
-        </div> <!-- end card -->
-
-    </div> <!-- end col-->
-</div>
-<!-- end row -->
-
-<div class="row">
-    <div class="col-12">
-        <div class="text-center mb-3">
-            <button type="button" class="btn w-sm btn-light waves-effect">Cancel</button>
-            <button type="button"
-                class="btn w-sm btn-success waves-effect waves-light">Save</button>
-            <button type="button"
-                class="btn w-sm btn-danger waves-effect waves-light">Delete</button>
-        </div>
-    </div> <!-- end col -->
-</div>
-<!-- end row -->
-
-
-<!-- file preview template -->
-<div class="d-none" id="uploadPreviewTemplate">
-    <div class="card mt-1 mb-0 shadow-none border">
-        <div class="p-2">
-            <div class="row align-items-center">
-                <div class="col-auto">
-                    <img data-dz-thumbnail src="#" class="avatar-sm rounded bg-light" alt="">
-                </div>
-                <div class="col ps-0">
-                    <a href="javascript:void(0);" class="text-muted fw-bold" data-dz-name></a>
-                    <p class="mb-0" data-dz-size></p>
-                </div>
-                <div class="col-auto">
-                    <!-- Button -->
-                    <a href="" class="btn btn-link btn-lg text-muted" data-dz-remove>
-                        <i class="dripicons-cross"></i>
-                    </a>
-                </div>
             </div>
         </div>
     </div>
 </div>
 
+@endsection
+
+@section('script')
+<script type="text/javascript">
+var select = document.getElementById('select-type');
+select.addEventListener('change', function(){
+    this.form.submit();
+}, false);
+</script>
 @endsection

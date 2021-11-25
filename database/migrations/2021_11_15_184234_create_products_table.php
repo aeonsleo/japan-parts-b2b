@@ -24,21 +24,21 @@ class CreateProductsTable extends Migration
             $table->decimal('height')->nullable();
             $table->decimal('length')->nullable();
             $table->decimal('weight')->nullable();
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->integer('min_order_quantity');
             $table->integer('max_order_quantity')->nullable();
             $table->integer('lead_time')->nullable();
             $table->integer('is_new');
-            $table->integer('in_stock')->nullable();
+            $table->tinyInteger('in_stock')->nullable()->default(0);
             $table->decimal('unit_price');
-            $table->string('parts_group');
+            $table->string('parts_group')->nullable();
             $table->string('brand_name')->index();
-            $table->string('category');
-            $table->string('brand_part_name');
+            $table->string('category')->nullable()->index();
+            $table->string('brand_part_name')->nullable();
             $table->unsignedBigInteger('supplier_id');
             $table->unsignedBigInteger('country_id');
             $table->unsignedBigInteger('tax_id');
-            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('category_id')->nullable();
             $table->timestamps();
 
             $table->foreign('supplier_id')->references('id')->on('suppliers');

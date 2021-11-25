@@ -43,6 +43,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['prefix' => 'supplier', 'middleware' => ['auth']], function() {
     Route::get('/home', [SupplierDashboardController::class, 'index'])->name('supplier.home');
     Route::get('/products/create', [ProductController::class, 'create'])->name('supplier.product.create');
+    Route::get('/products/oem/create', [ProductController::class, 'createOemProduct'])->name('supplier.product.create-oem');
+    Route::post('/products/oem/store', [ProductController::class, 'storeOemProduct'])->name('supplier.product.store-oem');
+    Route::get('/products/aftermarket/create', [ProductController::class, 'createAftermarketProduct'])->name('supplier.product.create-aftermarket');
 });
 
 //Admin
