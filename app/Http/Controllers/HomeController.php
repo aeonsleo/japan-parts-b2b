@@ -13,8 +13,8 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('permission:customer');
-        $this->middleware('verified');
+        // $this->middleware('permission:customer');
+        // $this->middleware('verified');
     }
 
     /**

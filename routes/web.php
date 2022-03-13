@@ -24,10 +24,6 @@ use App\Http\Controllers\Supplier\DashboardController as SupplierDashboardContro
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/test-parts-catalog', function () {
     return view('test-parts-catalog');
 });
@@ -37,6 +33,7 @@ Auth::routes(['verify' => true]);
 Route::get('/supplier/register', [RegisterController::class, 'showForm'])->name('supplier.register');
 Route::post('/supplier/register', [RegisterController::class, 'register']);
 
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //Supplier
