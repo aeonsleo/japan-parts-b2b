@@ -64,6 +64,7 @@ class RegisterController extends Controller
     
             $user->assignRole([$role->id]);
     
+            $request->request->add(['contact_person_name'=> $request->name]);
             // Save the Supplier Details
             $supplier =  Supplier::create(array_merge($request->all(), ['user_id' => $user->id]));
     

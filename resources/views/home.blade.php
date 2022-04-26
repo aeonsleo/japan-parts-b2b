@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('partials.header')
-
     <section class="banner_section  big_section_cmn">
         <div class="container-fluid">
             <div class="banner_content">
@@ -44,6 +42,7 @@
                     data-key="TWS-D76AA7C1-D8E3-4E92-8B54-9DA7DF901B81"
                     data-back-url="/search?part={article}&brand={brand}"
                 ></div>
+                <script type="application/javascript" src="https://gui.parts-catalogs.com/v2/parts-catalogs.js"></script>
             </div>
         </div>
     </section>

@@ -14,12 +14,21 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto  mb-2 mb-lg-0 custom_menu">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="{{ route('home') }}">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Car Parts</a>
                     </li>
-
+                    @can('product-create')
+                    <li class="nav-item">
+                        <a href="{{ route('supplier.product.index') }}" class="nav-link">Products</a>
+                    </li>
+                    @endcan
+                    @can('product-list')
+                    <li class="nav-item">
+                        <a href="{{ route('supplier.product.create') }}" class="nav-link">Create Product</a>
+                    </li>
+                    @endcan
                     <li class="nav-item">
                         <a class="nav-link" href="#">Brands</a>
                     </li>
@@ -58,11 +67,11 @@
                     </li>
                 </ul>
                 <!-- end mobile menu  -->
-                <form class="d-flex menu_search">
+                {{-- <form class="d-flex menu_search">
                     <input class=" " type="search" placeholder="Search by car brand, part number, product type"
                         aria-label="Search">
                     <button class="btn_c" type="submit"><i class="fas fa-search"></i></button>
-                </form>
+                </form> --}}
                 <ul class="navbar-nav ml-auto  mb-2 mb-lg-0 custom_menu">
                     <li class="nav-item">
                         <a class="nav-link " aria-current="page" href="#">Why JP Professionals</a>

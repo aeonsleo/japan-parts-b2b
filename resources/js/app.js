@@ -6,6 +6,7 @@
 
 require('./bootstrap.min');
 require('./bootstrap');
+// require('./parts-catalog-v2');
 
 window.Vue = require('vue').default;
 

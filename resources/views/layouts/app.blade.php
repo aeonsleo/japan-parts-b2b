@@ -26,6 +26,7 @@
 </head>
 <body>
     <div id="application">
+        @include('partials.header')
         @yield('content')
     </div>
 </body>
@@ -45,7 +46,7 @@
 <script src="https://unpkg.com/isotope-layout@3.0.6/dist/isotope.pkgd.min.js"></script>
 <script src="{{ asset('frontend/js/packery-mode.pkgd.js') }}"></script>
 <script src="{{ asset('frontend/js/skript.js') }}"></script>
-<script type="text/javascript" src="https://gui.parts-catalogs.com/v2/parts-catalogs.js"></script>
+{{-- <script type="text/javascript" src="https://gui.parts-catalogs.com/v2/parts-catalogs.js"></script> --}}
 <script src="{{ asset('frontend/js/app.js') }}"></script>
 @yield('script')
 </html>

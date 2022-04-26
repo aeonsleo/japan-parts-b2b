@@ -24,9 +24,11 @@ class OEMProductRequest extends FormRequest
     public function rules()
     {
         return [
+            'type' => 'required|string',
             'brand_name' => 'required|string',
             'part_number' => 'required',
             'part_name' => 'required|string|max:150',
+            'lead_time' => 'required|integer',
             'length' => 'nullable',
             'width' => 'nullable',
             'height' => 'nullable',
@@ -35,7 +37,7 @@ class OEMProductRequest extends FormRequest
             'max_order_quantity' => 'nullable|integer',
             'country_id' => 'required',
             'unit_price' => 'required',
-            'is_new' => 'required',
+            'is_new' => 'required_without:is_used',
             'in_stock' => 'nullable|integer',
             'input_price' => 'nullable|array'
         ];

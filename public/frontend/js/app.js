@@ -2175,6 +2175,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -38847,216 +38860,220 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("div", { staticClass: "row" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _vm._m(1),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-3" }, [
-          _c("div", { staticClass: "mb-3" }, [
-            _c(
-              "select",
-              {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.fromUnits,
-                    expression: "fromUnits",
-                  },
-                ],
-                staticClass: "form-select",
-                attrs: { name: "from_units", id: "from_units" },
-                on: {
-                  change: function ($event) {
-                    var $$selectedVal = Array.prototype.filter
-                      .call($event.target.options, function (o) {
-                        return o.selected
-                      })
-                      .map(function (o) {
-                        var val = "_value" in o ? o._value : o.value
-                        return val
-                      })
-                    _vm.fromUnits = $event.target.multiple
-                      ? $$selectedVal
-                      : $$selectedVal[0]
-                  },
-                },
-              },
-              _vm._l(_vm.fromUnitsOptions, function (option) {
-                return _c(
-                  "option",
-                  { key: option, domProps: { value: option } },
-                  [_vm._v(_vm._s(option))]
-                )
-              }),
-              0
-            ),
-          ]),
-        ]),
-        _vm._v(" "),
-        _vm._m(2),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-3" }, [
-          _c("div", { staticClass: "mb-3" }, [
-            _c(
-              "select",
-              {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.toUnits,
-                    expression: "toUnits",
-                  },
-                ],
-                staticClass: "form-select",
-                attrs: { name: "to_units", id: "to_units" },
-                on: {
-                  change: function ($event) {
-                    var $$selectedVal = Array.prototype.filter
-                      .call($event.target.options, function (o) {
-                        return o.selected
-                      })
-                      .map(function (o) {
-                        var val = "_value" in o ? o._value : o.value
-                        return val
-                      })
-                    _vm.toUnits = $event.target.multiple
-                      ? $$selectedVal
-                      : $$selectedVal[0]
-                  },
-                },
-              },
-              _vm._l(_vm.toUnitsOptions, function (option) {
-                return _c(
-                  "option",
-                  { key: option, domProps: { value: option } },
-                  [_vm._v(_vm._s(option))]
-                )
-              }),
-              0
-            ),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-2" }, [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-success btn-sm",
-              attrs: { id: "add-price-slab", type: "button" },
-              on: { click: _vm.addPriceSlab },
-            },
-            [_c("b", [_vm._v("Add")])]
-          ),
-        ]),
+  return _c("div", [
+    _c("div", { staticClass: "enter_part_inline_area  two_select_area" }, [
+      _c("label", { attrs: { for: "price_slab" } }, [
+        _vm._v("Add Price Slab "),
       ]),
       _vm._v(" "),
-      _vm._l(_vm.priceSlabs, function (priceSlab, index) {
-        return _c("div", { key: index, staticClass: "row" }, [
-          _vm._m(3, true),
-          _vm._v(" "),
-          _vm._m(4, true),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-6", attrs: { id: "price-slabs" } }, [
-            _c("input", {
-              attrs: { type: "hidden", name: "units_from[]" },
-              domProps: { value: priceSlab.fromUnits },
-            }),
-            _vm._v(" "),
-            _c("input", {
-              attrs: { type: "hidden", name: "units_to[]" },
-              domProps: { value: priceSlab.toUnits },
-            }),
-            _vm._v(" "),
-            _c("div", [
-              _vm._v(
-                "\n                Price Slab: " +
-                  _vm._s(priceSlab.fromUnits) +
-                  " - " +
-                  _vm._s(priceSlab.toUnits) +
-                  " units  "
-              ),
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "enter_part_inline_area single_big_form two_select_area_one_area",
+        },
+        [
+          _c(
+            "div",
+            {
+              staticClass:
+                "banner_single_s_f search_pdt_page_in brand_filter_selct_form_style create_page_top",
+            },
+            [
+              _c("div", { staticClass: "custom_select_jn" }, [
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.fromUnits,
+                        expression: "fromUnits",
+                      },
+                    ],
+                    staticClass: "form-control form-select",
+                    attrs: { name: "from_units", id: "from_units" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.fromUnits = $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      },
+                    },
+                  },
+                  _vm._l(_vm.fromUnitsOptions, function (option) {
+                    return _c(
+                      "option",
+                      { key: option, domProps: { value: option } },
+                      [_vm._v(_vm._s(option))]
+                    )
+                  }),
+                  0
+                ),
+              ]),
+            ]
+          ),
+        ]
+      ),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
+      _c("div", { staticClass: "enter_part_inline_area single_big_form" }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              "banner_single_s_f search_pdt_page_in brand_filter_selct_form_style create_page_top",
+          },
+          [
+            _c("div", { staticClass: "custom_select_jn" }, [
               _c(
-                "button",
+                "select",
                 {
-                  staticClass: "btn btn-sm btn-danger",
-                  attrs: { type: "button", id: "del-slab" },
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.toUnits,
+                      expression: "toUnits",
+                    },
+                  ],
+                  staticClass: "form-select",
+                  attrs: { name: "to_units", id: "to_units" },
                   on: {
-                    click: function ($event) {
-                      return _vm.deletePriceSlab(index)
+                    change: function ($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function (o) {
+                          return o.selected
+                        })
+                        .map(function (o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.toUnits = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
                     },
                   },
                 },
-                [_vm._v("\n                    Del\n                ")]
+                _vm._l(_vm.toUnitsOptions, function (option) {
+                  return _c(
+                    "option",
+                    { key: option, domProps: { value: option } },
+                    [_vm._v(_vm._s(option))]
+                  )
+                }),
+                0
               ),
             ]),
-          ]),
-        ])
-      }),
-    ],
-    2
-  )
+          ]
+        ),
+      ]),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-success btn-sm",
+          attrs: { id: "add-price-slab", type: "button" },
+          on: { click: _vm.addPriceSlab },
+        },
+        [_c("b", [_vm._v("Add")])]
+      ),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form_last_right_3_price_area" }, [
+      _c("div", { staticClass: "form_last_3price_forms" }, [
+        _c(
+          "div",
+          { staticClass: "form_last_3_price_single" },
+          _vm._l(_vm.priceSlabs, function (priceSlab, index) {
+            return _c(
+              "div",
+              {
+                key: index,
+                staticClass: "enter_part_inline_area single_big_form",
+              },
+              [
+                _c("label", { attrs: { for: "prt_num" } }, [_vm._v("Price")]),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass: "prt_num",
+                  attrs: {
+                    type: "text",
+                    placeholder: "Input Price",
+                    id: "prt_num",
+                    name: "input_price[]",
+                  },
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "single_price_cros_area" }, [
+                  _c("input", {
+                    attrs: { type: "hidden", name: "units_from[]" },
+                    domProps: { value: priceSlab.fromUnits },
+                  }),
+                  _vm._v(" "),
+                  _c("input", {
+                    attrs: { type: "hidden", name: "units_to[]" },
+                    domProps: { value: priceSlab.toUnits },
+                  }),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      "Price Slab : " +
+                        _vm._s(priceSlab.fromUnits) +
+                        " - " +
+                        _vm._s(priceSlab.toUnits) +
+                        " Units"
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("span", [
+                    _c(
+                      "a",
+                      {
+                        attrs: { href: "javascript:void(0)", id: "del-slab" },
+                        on: {
+                          click: function ($event) {
+                            return _vm.deletePriceSlab(index)
+                          },
+                        },
+                      },
+                      [_c("i", { staticClass: "fas fa-times" })]
+                    ),
+                  ]),
+                ]),
+              ]
+            )
+          }),
+          0
+        ),
+      ]),
+    ]),
+  ])
 }
 var staticRenderFns = [
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-2" }, [
-      _c("label", { staticClass: "form-label", attrs: { for: "" } }, [
-        _vm._v("Add Price Slab"),
-      ]),
-    ])
+    return _c("div", { staticClass: "to_area" }, [_c("p", [_vm._v("From")])])
   },
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-1" }, [
-      _c("label", { staticClass: "form-label", attrs: { for: "" } }, [
-        _vm._v("From units"),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-1" }, [
-      _c("label", { staticClass: "form-label", attrs: { for: "" } }, [
-        _vm._v("To units"),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-3" }, [
-      _c(
-        "label",
-        { staticClass: "form-label", attrs: { for: "input_price" } },
-        [_vm._v("Price")]
-      ),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-3" }, [
-      _c("div", { staticClass: "mb-3" }, [
-        _c("input", {
-          staticClass: "form-control",
-          attrs: { type: "text", name: "input_price[]", value: "" },
-        }),
-      ]),
-    ])
+    return _c("div", { staticClass: "to_area" }, [_c("p", [_vm._v("to")])])
   },
 ]
 render._withStripped = true
@@ -51326,7 +51343,8 @@ var __webpack_exports__ = {};
  */
 __webpack_require__(/*! ./bootstrap.min */ "./resources/js/bootstrap.min.js");
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // require('./parts-catalog-v2');
+
 
 window.Vue = (__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js")["default"]);
 /**

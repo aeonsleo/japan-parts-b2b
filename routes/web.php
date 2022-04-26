@@ -35,11 +35,15 @@ Route::post('/supplier/register', [RegisterController::class, 'register']);
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/search', [App\Http\Controllers\SearchController::class, 'index'])->name('search');
 
 //Supplier
 Route::group(['prefix' => 'supplier', 'middleware' => ['auth']], function() {
     Route::get('/home', [SupplierDashboardController::class, 'index'])->name('supplier.home');
+    Route::get('/products', [ProductController::class, 'index'])->name('supplier.product.index');
     Route::get('/products/create', [ProductController::class, 'create'])->name('supplier.product.create');
+    Route::get('/products/edit/{id}', [ProductController::class, 'edit'])->name('supplier.product.edit');
+    Route::post('/products/delete/{id}', [ProductController::class, 'destroy'])->name('supplier.product.delete');
     Route::get('/products/oem/create', [ProductController::class, 'createOemProduct'])->name('supplier.product.create-oem');
     Route::post('/products/oem/store', [ProductController::class, 'storeOemProduct'])->name('supplier.product.store-oem');
     Route::get('/products/aftermarket/create', [ProductController::class, 'createAftermarketProduct'])->name('supplier.product.create-aftermarket');

@@ -29,7 +29,7 @@ class SupplierRegisterRequest extends FormRequest
             'password' => 'required|confirmed|min:8|max:50',
             'company_name' => 'required|string|max:50',
             'business_id' => 'nullable|max:50',
-            'contact_person_name' => 'required|string|max:50',
+            'name' => 'required|string|max:50',
             'url' => 'nullable|string|min:10',
             'phone' => 'required|max:50',
             'address_line_1' => 'required|max:150',

@@ -1,59 +1,72 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <h5 class="text-uppercase bg-light p-2 mt-0 mb-3">Create Product</h5>
-
-                <form action="" method="GET">
-                    <div class="row">
-                        <div class="col-6 p-3">
-                            <div class="row">
-                                <div class="col-3">
-                                    <label for="product_type" class="form-label">Type of Product</label>
-                                </div>
-                                <div class="col-9">
-                                    <div class="form-group">
-                                        <select  class="form-select" name="product_type" id="select-type">
-                                            <option value="">Select</option>
-                                            <option value="oem" @if (request()->product_type == 'oem') selected @endif>OEM</option>
-                                            <option value="aftermarket" @if (request()->product_type == 'aftermarket') selected @endif>Aftermarket</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            @if (request()->has('product_type'))
-                                <div class="row" id="oem-part">
-                                    <div class="col-3">
-                                        <label for="part-number" class="form-label">Enter Part No</label>
-                                    </div>
-                                    <div class="col-8">
-                                        <div class="form-group">
-                                            <input type="text" name="part_number" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-1">
-                                        <button type="submit" class="btn btn-warning">Go</button>
-                                    </div>
-                                </div>     
-                                <div class="row">
-                                    <div class="col-12">OR</div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <button name="search_part" class="btn btn-primary" type="submit">Search for Part No</button>
-                                    </div>
-                                </div>                       
-                            @endif
-                        </div>
-                    </div>
-                </form>
+<section class="order_page_need_help_section big_section_cmn create_page_page_title">
+    <div class="container-fluid">
+        <div class="title_and_help_area create_page_title_and_btn_area">
+            <!-- end bread cump global   -->
+            <!-- page title  -->
+            <div class="cart_page_title_area">
+                <h2>Create Product</h2>
             </div>
+
         </div>
     </div>
-</div>
+</section>
+
+<section class="create_page_form_section big_section_cmn">
+    <div class="container-fluid">
+        <div class="form_content_area_create_page">
+
+            <div class="create_top_selet_area">
+                <!-- custom secelt  -->
+                <div class="type_of_product_form_area">
+                    <!-- filter sect   -->
+                    <div class="banner_single_s_f search_pdt_page_in brand_filter_selct_form_style create_page_top">
+                        <p>Type of Product</p>
+                        <div class="custom_select_jn">
+                            <!-- from w3     -->
+                            <form action="{{ route('supplier.product.create') }}">
+                                <div class="enter_part_inline_area" style="width:200px;">
+                                    <select  class="form-select" name="product_type" id="select-type">
+                                        <option value="">Select</option>
+                                        <option value="oem" @if (request()->product_type == 'oem') selected @endif>OEM</option>
+                                        <option value="aftermarket" @if (request()->product_type == 'aftermarket') selected @endif>Aftermarket</option>
+                                    </select>
+                                </div>
+                            </form>
+                            <!-- from w3     -->
+                        </div>
+                        </div>
+                    <!-- filter sect   -->
+                </div>
+                <!-- custom secelt  -->
+            </div>
+
+            @if (request()->has('product_type') && request()->product_type != null)
+            <div class="know_part_form_area">
+                <div class="know_part_title">
+                    <h2>Have Part Number?</h2> 
+                </div>
+                <div class="enter_partnum_area">
+                  
+                    <form action="{{ route('supplier.product.create') }}" method="GET">
+                        <div class="enter_part_inline_area">
+                        <label for="prt_num">Enter Part Number</label>
+                        <input type="text" placeholder="17021-321454" class="prt_num" id="prt_num" name="part_number">
+                        <button class="go_btn btnn">Go</button>
+                        </div>
+                        <div class="search_for_port_num_btn_area">
+                            <span>Or </span> <button class="btnn serach_f_p_n_btn" name="search_part">Search for Part Number</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            @endif
+        </div> 
+    </div>
+</section>
+
 
 @endsection
 
